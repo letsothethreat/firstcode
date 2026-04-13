@@ -10,12 +10,22 @@ public class RegistrationLoginSystem {
     //class to handle user details and checks
     public static void main(String[] args) {
           
-        try (Scanner input = new Scanner(System.in)) {
+        Scanner input = new Scanner(System.in)) {
         Login userlogin = new Login();
-                    
+        
+        String firstName;
+        String lastName;       
         String username;
         String password;
         String cellPhonenumber;
+        
+        //This is the user validation
+            System.out.println("Please enter your first name:");
+            firstName = input.nextLine();
+            
+            System.out.println("Please enter your last name");
+            lastName = input.nextLine();
+            
                     
         //This is the username validation
         do {
@@ -46,7 +56,7 @@ public class RegistrationLoginSystem {
                     
         // This is the cell phone number validation
         do {
-            System.out.println("Enter your cellphone number:");
+            System.out.println("Enter your cellphone number(should begin with +27...):");
             cellPhonenumber = input.nextLine();
                         
             if(!userlogin.checkCellPhoneNumber(cellPhonenumber)) {
@@ -57,7 +67,7 @@ public class RegistrationLoginSystem {
         System.out.println("Cellphone number successfully captured");
                     
         //This is the register user section
-        String registrationMessage = userlogin.registerUser(username, password);
+        String registrationMessage = userlogin.registerUser(firstName, lastName, username, password);
         System.out.println(registrationMessage);
                     
         //This is the login section
