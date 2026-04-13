@@ -10,14 +10,14 @@ public class RegistrationLoginSystem {
     //class to handle user details and checks
     public static void main(String[] args) {
           
-        Scanner input = new Scanner(System.in)) {
-        Login userlogin = new Login();
+        Scanner input = new Scanner(System.in);
+        Login userLogin = new Login();
         
         String firstName;
         String lastName;       
         String username;
         String password;
-        String cellPhonenumber;
+        String cellPhoneNumber;
         
         //This is the user validation
             System.out.println("Please enter your first name:");
@@ -32,12 +32,12 @@ public class RegistrationLoginSystem {
             System.out.println("Please enter the username:");
             username = input.nextLine();
                         
-            if (!userlogin.checkUserName(username)) {
+            if (!userLogin.checkUserName(username)) {
                 System.out.println("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than five characters in length.");
             }
                         
                         
-        } while (!userlogin.checkUserName(username));
+        } while (!userLogin.checkUserName(username));
                     
         System.out.println("Username successfully captured");
                     
@@ -46,28 +46,28 @@ public class RegistrationLoginSystem {
             System.out.println("Enter your password");
             password = input.nextLine();
                         
-            if (!userlogin.checkPasswordComplexity(password)) {
+            if (!userLogin.checkPasswordComplexity(password)) {
             System.out.println("Passowrd is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.");
             }
                         
-        } while (!userlogin.checkPasswordComplexixity(password));
+        } while (!userLogin.checkPasswordComplexity(password));
                     
         System.out.println("Password successfully captured");
                     
         // This is the cell phone number validation
         do {
             System.out.println("Enter your cellphone number(should begin with +27...):");
-            cellPhonenumber = input.nextLine();
+            cellPhoneNumber = input.nextLine();
                         
-            if(!userlogin.checkCellPhoneNumber(cellPhonenumber)) {
+            if(!userLogin.checkCellPhoneNumber(cellPhoneNumber)) {
             System.out.println("Invalid phone. Ensure it includes the international code and correct length");
                         }
-        } while (!userlogin.checkCellPhoneNumber(cellPhonenumber));
+        } while (!userLogin.checkCellPhoneNumber(cellPhoneNumber));
                     
         System.out.println("Cellphone number successfully captured");
                     
         //This is the register user section
-        String registrationMessage = userlogin.registerUser(firstName, lastName, username, password);
+        String registrationMessage = userLogin.registerUser(firstName, lastName, username, password, cellPhoneNumber);
         System.out.println(registrationMessage);
                     
         //This is the login section
@@ -88,5 +88,6 @@ public class RegistrationLoginSystem {
         
     }
 }
-}    
+
+
     
